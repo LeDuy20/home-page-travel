@@ -1,0 +1,173 @@
+:root {
+    --PrimaryColors: hsl(199, 100%, 33%);
+    --SecondaryColor: hsl(187, 85%, 43%);
+    --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+    --white-color: hsl(0, 0%, 100%);
+    --blackColor: hsl(201, 33%, 16%);
+    --textColor: hsl(240, 4%, 36%);
+    --whiteColorDream: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 190, 190);
+    --inputColor: rgb(239, 239, 239);
+    --bodyColor: rgb(240, 240, 246);
+    --cardBG: rgb(225, 225, 235);
+}
+.header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--whiteColorDream);
+    width: 100%;
+    padding: 1rem;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(2, 15, 29, 0.244);
+
+    .logo {
+        color: var(--blackColor);
+        font-weight: 600;
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+
+        .icon {
+            font-size: 25px;
+            color: var(--PrimaryColors);
+            transform: translateY(5px);
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .navBar {
+            position: absolute;
+            background: var(--whiteColorDream);
+            height: max-content;
+            width: 80%;
+            border-radius: 1rem;
+            padding: 1rem;
+            top: -500rem;
+            left: 50%;
+            transform: translate(-50%);
+            z-index: 2000;
+            box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
+            transition: 0.5s ease-in-out;
+
+            .navList {
+                flex-direction: column;
+                justify-content: center;
+                width: 100%;
+                margin: auto;
+                padding: 1rem 0;
+
+                .navItem {
+                    padding: 0.5rem 0;
+
+                    .navLink {
+                        color: var(--textColor);
+                        font-size: 1.4rem;
+                        font-weight: 600;
+                    }
+                }
+                .btn {
+                    margin-top: 1rem;
+                }
+            }
+            &.active {
+                top: 7rem;
+            }
+        }
+        .closeNavbar {
+            display: block;
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+            color: var(--PrimaryColors);
+
+            &:hover {
+                color: var(--SecondaryColor);
+            }
+        }
+    }
+
+    .toggleNavbar {
+        .icon {
+            font-size: 25px;
+            color: var(--PrimaryColors);
+        }
+        &:hover.icon {
+            color: var(--SecondaryColor);
+        }
+    }
+}
+// MEDIA
+
+@media screen and (min-width: 768px) {
+    .toggleNavbar , .closeNavbar {
+        display: none;
+    }
+
+    .header {
+        padding: 1.5rem 2rem;
+
+        .navBar {
+            .navList {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: row;
+
+                .navItem {
+                    .navLink {
+                        color: var(--textColor);
+                        padding: 0 0.45rem;
+                        font-size: 1.4rem;
+                        font-weight: 500;
+
+
+                        &:hover {
+                            color: var(--PrimaryColors);
+                        }
+                    }
+                }
+                .btn {
+                    margin-left: 6rem;
+                    a {
+                        color: var(--white-color);
+                        font-weight: 500; 
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .header {
+        .navBar {
+            .navList {
+                .navItem {
+                    padding: 0 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .header {
+        padding: 2rem 2.5rem;
+        .navBar {
+            .navList {
+                .navItem {
+                    padding: 0 1.5rem;
+                    .navLink {
+                        font-size: 1.8rem;
+                    }
+                }
+                .btn {
+                    margin-left: 13rem;
+                    padding: 1.5rem 2.5rem ;
+                }
+            }
+        }
+    }
+}
